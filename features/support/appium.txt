@@ -1,0 +1,26 @@
+[caps]
+# 模拟器
+# platformName = "IOS"
+# deviceName = "iPhone 7 Plus"
+# platformVersion = "12.2"
+# app = "./apps/AutoUITestDemo.app"
+# automationName = "XCUITest"
+# noReset="true"
+
+# 真机
+platformName = "IOS"
+deviceName = "iPhone 7 Plus"
+platformVersion = "12.2"
+# app = "./apps/AutoUITestDemo.app"
+automationName = "XCUITest"
+udid = "d0b9371fdfffeff3c150d8a712f3196ff1b4de95"
+bundleId = "com.wangda.zhangting"
+autoLaunch = "false"
+# xcodeOrgId = "QT6N53BFV6"
+# xcodeSigningId = "ZHH59G3WE3"
+# autoAcceptAlerts = "true"
+# waitForAppScript = "$.delay(5000); $.acceptAlert();" # 处理系统弹窗
+
+[appium_lib]
+sauce_username = false
+sauce_access_key = false
