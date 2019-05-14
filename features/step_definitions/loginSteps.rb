@@ -1,7 +1,6 @@
 # encoding: UTF-8
 
 当("点击 {string}") do |string|
-    sleep(3)
     e = exists { button(string) }
     if e
         btn = button(string)
