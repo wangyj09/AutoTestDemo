@@ -1,5 +1,10 @@
 # encoding: UTF-8
 
+当("点击我的移动") do
+    sleep(5)
+    driver.find_element(:accessibility_id, "我的移动").click
+end
+
 当("点击 {string}") do |string|
     e = exists { button(string) }
     if e
