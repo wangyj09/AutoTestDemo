@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 当("点击 {string}") do |string|
+    sleep(3)
     e = exists { button(string) }
     if e
         btn = button(string)
@@ -8,7 +9,6 @@
         btn = driver.find_element(:id, string)
     end
     wait { btn.click }
-    sleep(3)
 end
 
 当("输入手机号") do
