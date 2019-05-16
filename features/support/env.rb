@@ -18,4 +18,16 @@ World do
 end
 
 Before { $driver.start_driver }
-After { $driver.driver_quit }
+After {
+    if scenario.failed?
+    	puts "报错截图："
+    	addScreenshot("#{Time.now.strftime("%Y%m%d-%H%M%S")}_error")
+    end
+    $driver.driver_quit
+}
+
+def addScreenshot(name)
+    $driver.save_screenshot("/Users/wangyj/.jenkins/workspace/AutoTestDemo/Screenshot/"+name+".png")
+	sleep 1 #防止脚本立即退出时截图为空
+	puts '<img src="'+ '../../' + $imgPath+name+'.png' + '">'
+end
