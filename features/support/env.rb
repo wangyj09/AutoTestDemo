@@ -27,8 +27,7 @@ After do |scenario|
     $driver.driver_quit
 end
 
-
-#"/Users/wangyj/.jenkins/workspace/AutoTestDemo/Screenshot/" +
+# 添加截图
 def addScreenshot(name)
     driver.save_screenshot("./Screenshot/" + name + ".png")
 	sleep 1 #防止脚本立即退出时截图为空
