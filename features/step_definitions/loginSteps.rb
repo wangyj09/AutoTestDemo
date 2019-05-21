@@ -2,37 +2,48 @@
 
 当("点击我的移动") do
     sleep(5)
-    driver.find_element(:accessibility_id, "我的移动").click
+    find_element_click("com.sitech.ac:id/tab_5","我的移动")
 end
 
+当("点击请点击登录") do
+    find_element_click("com.sitech.ac:id/mine_phone_name","请点击登录")
+end
+
+
 当("点击 {string}") do |string|
-    e = exists { button(string) }
-    if e
-        btn = button(string)
-    else
-        btn = driver.find_element(:id, string)
-    end
-    wait { btn.click }
+    find_element_click(string,string)
 end
 
 当("输入手机号") do
-    driver.find_element(:xpath, "//XCUIElementTypeApplication[@name=\"移动惠生活\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField").click
-    sleep(1)
-    driver.find_element(:accessibility_id, "清除文本").click
-    sleep(1)
-    driver.find_element(:xpath, "//XCUIElementTypeApplication[@name=\"移动惠生活\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField").send_keys "18756064869"
-    sleep(1)
+    if $device == "IOS"
+        find_element_click("com.sitech.ac:id/phone_number","//XCUIElementTypeApplication[@name=\"移动惠生活\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField")
+        find_element_click(" ","清除文本")
+        driver.find_element(:xpath, "//XCUIElementTypeApplication[@name=\"移动惠生活\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]/XCUIElementTypeTextField").send_keys $phone_no_ios
+    elsif $device == "Android"
+        driver.find_element(:id,"com.sitech.ac:id/phone_number").send_keys $phone_no_android
+    else
+        raise "device设备类型错误"
+    end
 end
 
 当("输入密码") do
-    touch = Appium::TouchAction.new
-    touch.tap(x: 332, y: 592).perform
-    touch.tap(x: 80, y: 537).perform
-    touch.tap(x: 79, y: 539).perform
-    touch.tap(x: 208, y: 700).perform
-    touch.tap(x: 82, y: 594).perform
-    touch.tap(x: 80, y: 537).perform
-    #driver.find_element(:id, "password").send_keys 611041
+    if $device == "IOS"
+        touch = Appium::TouchAction.new
+        touch.tap(x: 332, y: 592).perform
+        touch.tap(x: 80, y: 537).perform
+        touch.tap(x: 79, y: 539).perform
+        touch.tap(x: 208, y: 700).perform
+        touch.tap(x: 82, y: 594).perform
+        touch.tap(x: 80, y: 537).perform
+    elsif $device == "Android"
+        find_element_click("com.sitech.ac:id/key","").send_keys $phone_no_android_pwd
+    else
+        raise "device设备类型错误"
+    end
+end
+
+当("点击服务密码登录") do
+    find_element_click("com.sitech.ac:id/login_btn","服务密码登录")
 end
 
 当("等待 {int} 秒") do |int|

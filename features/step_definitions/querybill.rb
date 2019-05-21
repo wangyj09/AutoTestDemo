@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 当("点击账单") do
-    driver.find_element(:accessibility_id, "账单").click
+    find_element_click("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.support.v4.view.ViewPager/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.GridView[1]/android.widget.LinearLayout[1]/android.widget.TextView","账单")
     sleep(1)
 end
 
@@ -14,12 +14,12 @@ end
 当("点击往月账单") do
      today = Time.new
      mouth = today.strftime("%m").to_i
-     #puts mouth
-     driver.find_element(:accessibility_id, "0" + (mouth - 1).to_s + "月").click
+     find_element_click(("0" + (mouth - 1).to_s + "月"),("0" + (mouth - 1).to_s + "月"))
      sleep(1)
-     driver.find_element(:accessibility_id, "0" + (mouth - 2).to_s + "月").click
+     find_element_click(("0" + (mouth - 1).to_s + "月"),("0" + (mouth - 2).to_s + "月"))
      sleep(1)
-     driver.find_element(:accessibility_id, "0" + (mouth - 3).to_s + "月").click
+     find_element_click(("0" + (mouth - 1).to_s + "月"),("0" + (mouth - 3).to_s + "月"))
+     sleep(1)
 end
 
 当("进入往月账单页面") do
