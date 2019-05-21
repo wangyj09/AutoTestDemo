@@ -4,7 +4,7 @@ require 'appium_lib'
 require 'rubygems'
 
 # 设备类型 IOS 或 Android
-$device = "Android"
+$device = "IOS"
 
 class AppiumWorld
 end
