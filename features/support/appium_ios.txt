@@ -3,7 +3,7 @@
 # 模拟器
 # platformName = "IOS"
 # deviceName = "iPhone 7 Plus"
-# platformVersion = "12.2"
+# platformVersion = "12.3"
 # app = "./apps/AutoUITestDemo.app"
 # automationName = "XCUITest"
 # noReset="true"
@@ -11,7 +11,7 @@
 # 真机
 platformName = "IOS"
 deviceName = "iPhone 7 Plus"
-platformVersion = "12.2"
+platformVersion = "12.3"
 automationName = "XCUITest"
 udid = "d0b9371fdfffeff3c150d8a712f3196ff1b4de95"
 bundleId = "com.wangda.zhangting"
