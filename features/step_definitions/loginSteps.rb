@@ -36,7 +36,7 @@ end
         touch.tap(x: 82, y: 594).perform
         touch.tap(x: 80, y: 537).perform
     elsif $device == "Android"
-        find_element_click("com.sitech.ac:id/key","").send_keys $phone_no_android_pwd
+        driver.find_element(:id, "com.sitech.ac:id/key").send_keys $phone_no_android_pwd
     else
         raise "device设备类型错误"
     end

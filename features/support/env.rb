@@ -4,7 +4,7 @@ require 'appium_lib'
 require 'rubygems'
 
 # 设备类型 IOS 或 Android
-$device = "IOS"
+$device = "Android"
 
 class AppiumWorld
 end
@@ -28,8 +28,8 @@ Before { $driver.start_driver }
 
 After do |scenario|
     if scenario.failed?
-    	puts "报错截图："
-    	addScreenshot("#{Time.now.strftime("%Y%m%d%H%M%S")}_error")
+        puts "报错截图："
+        addScreenshot("#{Time.now.strftime("%Y%m%d%H%M%S")}_error")
     end
     $driver.driver_quit
 end
